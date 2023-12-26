@@ -1,10 +1,30 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './app/app.component.tsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import App from "./app/app.component.tsx";
+import ChallangesRoutes from "./app/challenges/challenges.routes.tsx";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div className="m-3">
+        <Outlet />
+      </div>
+    ),
+    children: [
+      {
+        index: true,
+        element: <App />,
+      },
+      ChallangesRoutes,
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
