@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import Challenges from "./challanges.component";
-import PageTree from "./page-tree/page-tree.component";
+import PageTree from "./01_page-tree/page-tree.component";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ChallengesPaths = [
