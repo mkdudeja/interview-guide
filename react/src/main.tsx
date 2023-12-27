@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./app/app.component.tsx";
-import ChallangesRoutes from "./app/challenges/challenges.routes.tsx";
+import ChallangesRoutes from "./app/challanges/challenges.routes.tsx";
 import "./index.css";
 
 const router = createBrowserRouter([
