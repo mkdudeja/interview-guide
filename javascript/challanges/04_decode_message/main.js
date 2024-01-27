@@ -21,28 +21,30 @@
 // 3- combination 1&2 -
 
 function decode(message) {
-  if (!message.length) return "";
+  if (!message.length) {
+    return "";
+  }
 
+  const noOfRows = message.length;
   const noOfCols = Math.max(
-    ...input.map(function (item) {
+    ...message.map(function (item) {
       return item.length;
     })
   );
-  const noOfRows = message.length;
 
   let col = 0; // col counter
   let row = 0; // row counter
-  let doIncrement = true;
+  let doIncrement = true; // row direction
+
   const output = [];
   while (col < noOfCols) {
     const value = message[row] && message[row][col] ? message[row][col] : null;
 
     if (value) {
       output.push(value);
-      col++; // col increment
-
-      // challanging part - inrementing the row position
+      col++;
       row = doIncrement ? row + 1 : row - 1;
+
       if (row === noOfRows - 1) {
         doIncrement = false;
       } else if (row === 0) {
@@ -66,4 +68,4 @@ const input = [
   ["G", "H", "O", "E", "U", "A", "D"], // 7
 ];
 
-console.log(decode(input)); // IROCLED = IROCLED
+console.log(decode(input)); // IROCLED
