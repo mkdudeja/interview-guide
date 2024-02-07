@@ -2,6 +2,7 @@ import { Navigate } from "react-router-dom";
 import PageTree from "./01_page-tree/page-tree.component";
 import FormikNested from "./02_formik-nested/formik-nested.component";
 import UseEffectOnce from "./03_use_effect_once/use-effect-once.component";
+import UseTimeoutHook from "./04_use_timeout/use-timeout.component";
 import Challenges from "./challanges.component";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -17,6 +18,10 @@ export const ChallengesPaths = [
   {
     path: "use-once",
     element: <UseEffectOnce />,
+  },
+  {
+    path: "use-timeout",
+    element: <UseTimeoutHook />,
   },
 ];
 

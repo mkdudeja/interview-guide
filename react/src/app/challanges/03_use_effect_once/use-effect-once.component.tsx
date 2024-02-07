@@ -1,7 +1,13 @@
 import React from "react";
 import { useEffectOnce } from "./use-effect-once.hook";
+import { useUpdateEffect } from "./use-update-effect.hook";
 
-const UseEffectOnce: React.FC = () => {
+// PROBLEM STATEMENT
+// write a custom hook named `useUpdateEffect`
+// which ensures that our effect runs only on updates
+// ie. first render should be skipped on component load... :-)
+
+const UseEffectQuestions: React.FC = () => {
   const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
@@ -12,9 +18,15 @@ const UseEffectOnce: React.FC = () => {
     console.log("useEffectOnce count", count);
   });
 
+  useUpdateEffect(() => {
+    console.log("useUpdateEffect count", count);
+  }, [count]);
+
   return (
     <div className="flex flex-col justify-start items-start space-y-5">
-      <h1 className="text-xl font-bold">Challange: useEffectOnce</h1>
+      <h1 className="text-xl font-bold">
+        Challange: <u>useEffectOnce</u> & <u>useUpdateOnce</u>
+      </h1>
       <p>Count: {count}</p>
       <button
         type="button"
@@ -29,4 +41,4 @@ const UseEffectOnce: React.FC = () => {
   );
 };
 
-export default UseEffectOnce;
+export default UseEffectQuestions;
